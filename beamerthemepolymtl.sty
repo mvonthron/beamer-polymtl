@@ -1,0 +1,83 @@
+%
+% Copyright (c) 2011 
+% Manuel Vonthron - <manuel DOT vonthron AT acadis DOT org>
+%
+% This file may be distributed and/or modified under the terms of 
+% the Do What The Fuck You Want To Public License, Version 2
+% 
+
+
+\mode<presentation>
+
+
+\ProcessOptionsBeamer
+
+\useinnertheme{circles}
+\useoutertheme{miniframes}
+
+\usecolortheme{polymtl}
+
+\setbeamertemplate{navigation symbols}{}
+
+% TITLE PAGE
+\defbeamertemplate*{title page}{utbm}
+{
+  \thispagestyle{empty}
+TITLEPAGE
+}
+
+% HEADER
+\defbeamertemplate*{headline}{utbm}%
+{
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.6em]{headerline title}
+    \begin{minipage}{0.7\linewidth}
+        {\tiny{\bfseries POLYTECHNIQUE} MONTR\'EAL}%
+    \end{minipage}
+    \hspace{0px}
+    \begin{minipage}{0.3\linewidth}
+      \begin{flushright}
+        \insertsectionnavigationhorizontal{.3\paperwidth}{}{}
+      \end{flushright}
+    \end{minipage}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=\paperwidth,sep=1px]{headerline border}
+    \vspace{1px}
+  \end{beamercolorbox}
+}
+
+% FOOTER
+\defbeamertemplate*{footline}{utbm}
+{
+  %~ \begin{beamercolorbox}[wd=\paperwidth,sep=0.2ex]{footerline topborder}
+  %~ \end{beamercolorbox}  
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.4em]{footerline}
+    \insertshorttitle\;--\;\insertauthor \hfill \insertframenumber/\inserttotalframenumber\;--\;{\bfseries www.polymtl.ca}
+  \end{beamercolorbox}  
+}
+
+
+% SECTION LIST
+\usesectionheadtemplate
+{ %active
+  \color{polymtlred} \insertsectionhead
+}
+{ %other
+  \color{polymtllightgrey} \insertsectionhead
+}
+
+% BACKGROUND IMAGE
+\pgfdeclareimage[width=50px]{bgimage}{images/abeille.png}
+\setbeamertemplate{background canvas}
+{
+  \pgfuseimage{bgimage}
+}
+
+\defbeamertemplate*{frametitle}{}
+{
+  \begin{beamercolorbox}[sep=0ex,ht= 2.5ex, wd=\paperwidth]{}
+    \hspace{2ex}\insertframetitle{} \hspace{1ex}\hrulefill %
+  \end{beamercolorbox}%
+}
+
+\mode
+<all>
