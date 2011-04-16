@@ -9,26 +9,15 @@
 SOURCE=example
 LATEX=pdflatex
 
-all: utbm curiosity terra clean
+all: polymtl
 
-utbm:
-	sed -i -e '/^\\usecolortheme/s/{.*}/{UTBM}/g' $(SOURCE).tex
-	$(LATEX) -jobname $(SOURCE).utbm $(SOURCE).tex
-	$(LATEX) -jobname $(SOURCE).utbm $(SOURCE).tex
-	
-curiosity:
-	sed -i -e '/^\\usecolortheme/s/{.*}/{Curiosity}/g' $(SOURCE).tex
-	$(LATEX) -jobname $(SOURCE).curiosity $(SOURCE).tex 
-	$(LATEX) -jobname $(SOURCE).curiosity $(SOURCE).tex 
-	
-terra:
-	sed -i -e '/^\\usecolortheme/s/{.*}/{Terra}/g' $(SOURCE).tex
-	$(LATEX) -jobname $(SOURCE).terra $(SOURCE).tex
-	$(LATEX) -jobname $(SOURCE).terra $(SOURCE).tex
-	
+polymtl:
+	$(LATEX) -jobname $(SOURCE) $(SOURCE).tex
+	$(LATEX) -jobname $(SOURCE) $(SOURCE).tex
+
 clean:
 	rm -f *.aux *.out *.log 
 	rm -f *.snm *.toc *.nav
 
 mrproper: clean
-	rm -f $(SOURCE).terra.pdf $(SOURCE).curiosity.pdf $(SOURCE).utbm.pdf
+	rm -f $(SOURCE).pdf
