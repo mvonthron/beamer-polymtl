@@ -42,14 +42,24 @@
   \nointerlineskip
   \begin{beamercolorbox}[wd=1\paperwidth,ht=0.85\paperheight,center]{titlepage}
     \begin{beamercolorbox}[wd=0.95\paperwidth,ht=0.8\paperheight,leftskip=1em,sep=0.4em]{titlepage main}
+      \centering
+      \begin{minipage}[c]{0.7\paperwidth}
+        \centering
         \inserttitle\par
         \ifx\insertsubtitle\@empty\relax
-        \else\vspace{1em}\tiny\insertsubtitle
-
-      { \insertauthor\par 
-        \insertinstitute\par
-        \insertdate\par}
-        \vspace{100px}
+        \else\vspace{1em}\small\insertsubtitle
+      \vspace{30px}
+      \end{minipage}
+      
+      \begin{minipage}[c]{0.5\paperwidth}
+        \centering
+         \insertauthor\par 
+         \vspace{10px}
+          \small\insertinstitute\par
+          \vspace{10px}
+          \small\insertdate\par
+          \vspace{50px}
+      \end{minipage}
     \end{beamercolorbox}
   \vspace{13px}
   \end{beamercolorbox}
@@ -80,7 +90,7 @@
 \defbeamertemplate*{footline}{polymtl}
 {
 %\leavevmode%
-  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.4em]{footerline}
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.2em]{footerline}
     \insertshorttitle\;--\;\insertauthor \hfill \insertframenumber/\inserttotalframenumber\;--\;{\bfseries www.polymtl.ca}
   \end{beamercolorbox}  
 }
