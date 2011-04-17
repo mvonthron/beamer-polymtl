@@ -6,9 +6,11 @@
 % the Do What The Fuck You Want To Public License, Version 2
 % 
 
+\ProvidesPackage{beamerthemepolymtl}[2011/04/20]
+\RequirePackage{tikz}
+
 
 \mode<presentation>
-
 
 \ProcessOptionsBeamer
 
@@ -19,12 +21,13 @@
 
 \setbeamertemplate{navigation symbols}{}
 
-% TITLE PAGE
+%~ % TITLE PAGE
 \defbeamertemplate*{title page}{polymtl}
 {
   \thispagestyle{empty}
 TITLEPAGE
 }
+
 
 % HEADER
 \defbeamertemplate*{headline}{polymtl}%
@@ -48,8 +51,7 @@ TITLEPAGE
 % FOOTER
 \defbeamertemplate*{footline}{polymtl}
 {
-  %~ \begin{beamercolorbox}[wd=\paperwidth,sep=0.2ex]{footerline topborder}
-  %~ \end{beamercolorbox}  
+%\leavevmode%
   \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.4em]{footerline}
     \insertshorttitle\;--\;\insertauthor \hfill \insertframenumber/\inserttotalframenumber\;--\;{\bfseries www.polymtl.ca}
   \end{beamercolorbox}  
@@ -66,11 +68,13 @@ TITLEPAGE
 }
 
 % BACKGROUND IMAGE
-\pgfdeclareimage[width=50px]{bgimage}{images/abeille.png}
-\setbeamertemplate{background canvas}
-{
-  \pgfuseimage{bgimage}
+\setbeamertemplate{background}{
+  \parbox[r][\paperheight]{\paperwidth}{
+    \vfill\hfill
+    \includegraphics[]{images/fake-watermark.png}
+  }
 }
+
 
 \defbeamertemplate*{frametitle}{}
 {
@@ -78,6 +82,8 @@ TITLEPAGE
     \hspace{2ex}\insertframetitle{} \hspace{1ex}\hrulefill %
   \end{beamercolorbox}%
 }
+
+%\mode<handout>
 
 \mode
 <all>
