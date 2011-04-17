@@ -21,12 +21,40 @@
 
 \setbeamertemplate{navigation symbols}{}
 
-%~ % TITLE PAGE
-\defbeamertemplate*{title page}{polymtl}
+% TITLE PAGE
+\defbeamertemplate*{title page}{titlepage}
 {
   \thispagestyle{empty}
-TITLEPAGE
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.15\paperheight,leftskip=1em,sep=0.4em]{headerline title}
+    \begin{minipage}[c]{0.9\linewidth}
+    \begin{minipage}{0.25\linewidth}
+      \centering
+      \includegraphics[width=50px]{images/logo-bw.jpg}
+    \end{minipage}
+    \hfill
+    \hspace{5em}
+    \begin{minipage}{0.7\linewidth}
+      \centering
+
+    \end{minipage}
+    \end{minipage}
+  \end{beamercolorbox}
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=1\paperwidth,ht=0.85\paperheight,center]{titlepage}
+    \begin{beamercolorbox}[wd=0.95\paperwidth,ht=0.8\paperheight,leftskip=1em,sep=0.4em]{titlepage main}
+        \inserttitle\par
+        \ifx\insertsubtitle\@empty\relax
+        \else\vspace{1em}\tiny\insertsubtitle
+
+      { \insertauthor\par 
+        \insertinstitute\par
+        \insertdate\par}
+        \vspace{100px}
+    \end{beamercolorbox}
+  \vspace{13px}
+  \end{beamercolorbox}
 }
+
 
 
 % HEADER

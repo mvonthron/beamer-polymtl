@@ -13,7 +13,7 @@ all: polymtl
 
 polymtl:
 	$(LATEX) -jobname $(SOURCE) $(SOURCE).tex
-	$(LATEX) -jobname $(SOURCE) $(SOURCE).tex
+#	$(LATEX) -jobname $(SOURCE) $(SOURCE).tex
 
 clean:
 	rm -f *.aux *.out *.log 
