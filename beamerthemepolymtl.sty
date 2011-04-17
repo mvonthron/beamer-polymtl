@@ -69,10 +69,12 @@ TITLEPAGE
 
 % BACKGROUND IMAGE
 \setbeamertemplate{background}{
+  \ifnum\insertframenumber=1\else
   \parbox[r][\paperheight]{\paperwidth}{
     \vfill\hfill
     \includegraphics[]{images/fake-watermark.png}
   }
+  \fi
 }
 
 
