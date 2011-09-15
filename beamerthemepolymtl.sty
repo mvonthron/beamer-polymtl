@@ -9,8 +9,16 @@
 \ProvidesPackage{beamerthemepolymtl}[2011/04/20]
 \RequirePackage{tikz}
 
+\RequirePackage[scriptsize,it]{caption}
+\captionsetup{labelformat=empty,labelsep=none}
 
 \mode<presentation>
+
+\def\beamer@polymtl@value@empty{}
+
+\def\beamer@polymtl@url{}
+
+\DeclareOptionBeamer{url}[{www.polymtl.ca}]{\def\beamer@polymtl@url{#1}}
 
 \ProcessOptionsBeamer
 
@@ -91,7 +99,12 @@
 {
 %\leavevmode%
   \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.2em]{footerline}
-    \insertshorttitle\;--\;\insertauthor \hfill \insertframenumber/\inserttotalframenumber\;--\;{\bfseries www.polymtl.ca}
+    \insertshorttitle\;--\;\insertshortauthor \hfill \insertframenumber/\inserttotalframenumber\;--\; %
+    \ifx\beamer@polymtl@url\beamer@polymtl@value@empty
+        {\bfseries www.polymtl.ca}
+    \else
+        {\bfseries \beamer@polymtl@url}
+    \fi
   \end{beamercolorbox}  
 }
 
@@ -123,6 +136,21 @@
   \end{beamercolorbox}%
 }
 
+%
+\newcommand{\sectionframe}[1]
+{
+    \begin{beamercolorbox}[wd=\textwidth]{footerline}
+        \begin{minipage}{\textwidth}
+          \vspace{1em}
+          \centering\Large{\color{white}{#1}}
+          \vspace{1em}
+        \end{minipage}%
+    \end{beamercolorbox}%
+    \nointerlineskip
+    \begin{beamercolorbox}[sep=0ex,ht=2pt, wd=\textwidth]{headerline border}
+    \end{beamercolorbox}%
+
+}
 %\mode<handout>
 
 \mode
