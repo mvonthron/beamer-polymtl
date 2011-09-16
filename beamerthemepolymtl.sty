@@ -14,11 +14,17 @@
 
 \mode<presentation>
 
+\def\beamer@polymtl@value@true{true}
+\def\beamer@polymtl@value@false{false}
 \def\beamer@polymtl@value@empty{}
 
 \def\beamer@polymtl@url{}
+\def\beamer@polymtl@numbering{}
+\def\beamer@polymtl@titlepagelayout{}
 
 \DeclareOptionBeamer{url}[{www.polymtl.ca}]{\def\beamer@polymtl@url{#1}}
+\DeclareOptionBeamer{numbering}[true]{\def\beamer@polymtl@numbering{#1}}
+\DeclareOptionBeamer{titlepagelayout}[]{\def\beamer@polymtl@titlepagelayout{#1}}
 
 \ProcessOptionsBeamer
 
@@ -99,7 +105,10 @@
 {
 %\leavevmode%
   \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.2em]{footerline}
-    \insertshorttitle\;--\;\insertshortauthor \hfill \insertframenumber/\inserttotalframenumber\;--\; %
+    \insertshorttitle\;--\;\insertshortauthor \hfill %
+    \ifx\beamer@polymtl@numbering\beamer@polymtl@value@false\relax\else
+        \insertframenumber/\inserttotalframenumber\;--\; %
+    \fi
     \ifx\beamer@polymtl@url\beamer@polymtl@value@empty
         {\bfseries www.polymtl.ca}
     \else
