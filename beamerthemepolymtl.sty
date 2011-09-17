@@ -8,6 +8,7 @@
 
 \ProvidesPackage{beamerthemepolymtl}[2011/04/20]
 \RequirePackage{tikz}
+\RequirePackage{calc}
 
 \RequirePackage[scriptsize,it]{caption}
 \captionsetup{labelformat=empty,labelsep=none}
@@ -22,11 +23,25 @@
 \def\beamer@polymtl@numbering{}
 \def\beamer@polymtl@titlepagelayout{}
 
+\newlength{\beamer@polymtl@menuwidth}
+\newlength{\beamer@polymtl@restofmenuwidth}
+
+\setlength{\beamer@polymtl@menuwidth}{.3\paperwidth}
+
 \DeclareOptionBeamer{url}[{www.polymtl.ca}]{\def\beamer@polymtl@url{#1}}
 \DeclareOptionBeamer{numbering}[true]{\def\beamer@polymtl@numbering{#1}}
 \DeclareOptionBeamer{titlepagelayout}[]{\def\beamer@polymtl@titlepagelayout{#1}}
+\DeclareOptionBeamer{menuwidth}[]{\setlength{\beamer@polymtl@menuwidth}{#1}}
 
 \ProcessOptionsBeamer
+
+\setlength{\beamer@polymtl@restofmenuwidth}{0.95\paperwidth}
+\addtolength\beamer@polymtl@restofmenuwidth{-\beamer@polymtl@menuwidth}
+
+
+%~ \ifx\beamer@polymtl@menuwidth\beamer@polymtl@value@empty
+    %~ \def\beamer@polymtl@menuwidth{.3\paperwidth}
+%~ \fi
 
 \useinnertheme{circles}
 \useoutertheme{miniframes}
@@ -49,7 +64,6 @@
     \hspace{5em}
     \begin{minipage}{0.7\linewidth}
       \centering
-
     \end{minipage}
     \end{minipage}
   \end{beamercolorbox}
@@ -85,15 +99,16 @@
 \defbeamertemplate*{headline}{polymtl}%
 {
   \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.6em]{headerline title}
-    \begin{minipage}{0.7\linewidth}
+    \begin{minipage}{\beamer@polymtl@restofmenuwidth}
         {\tiny{\bfseries POLYTECHNIQUE} MONTR\'EAL}%
     \end{minipage}
     \hspace{0px}
-    \begin{minipage}{0.3\linewidth}
+    \begin{minipage}{\beamer@polymtl@menuwidth}
       \begin{flushright}
-        \insertsectionnavigationhorizontal{.3\paperwidth}{}{}
+        \insertsectionnavigationhorizontal{\beamer@polymtl@menuwidth}{}{}
       \end{flushright}
     \end{minipage}
+    
   \end{beamercolorbox}
   \begin{beamercolorbox}[wd=\paperwidth,sep=1px]{headerline border}
     \vspace{1px}
@@ -158,7 +173,6 @@
     \nointerlineskip
     \begin{beamercolorbox}[sep=0ex,ht=2pt, wd=\textwidth]{headerline border}
     \end{beamercolorbox}%
-
 }
 %\mode<handout>
 
