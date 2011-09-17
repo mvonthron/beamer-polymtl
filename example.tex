@@ -11,8 +11,13 @@
 %\usepackage[T1]{fontenc}
 %\usepackage[defaultsans]{droidsans}
 
-\usetheme{polymtl}
+\usetheme[
+        %url=,
+        %numbering=,
+        menuwidth={0.3\paperwidth}
+        ]{polymtl}
 
+\setbeamercovered{transparent=20}
 
 \begin{document}
 
@@ -59,15 +64,32 @@
 
 \subsection{Enumerate}
 \begin{frame}{Enumerate}
-  \begin{enumerate}
-    \item Lorem ; \pause
-    \item Ipsum ;
-    \item Dolor ;
-    \item Sit amet.
-  \end{enumerate}
+\begin{columns}
+  \begin{column}[l]{0.45\paperwidth}
+      \begin{enumerate}
+        \item Lorem ;
+        \item<2-> Ipsum ;
+        \item<2-> Dolor ;
+        \item<2-> Sit amet.
+      \end{enumerate}
+  \end{column}
+
+  \begin{column}[r]{0.45\paperwidth}
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur 
+    ultricies, dui ac luctus pellentesque, nunc dui lobortis lorem, nec 
+    porta mauris massa vel ante. Maecenas justo nisl, sodales quis 
+    placerat nec, convallis mollis magna. Curabitur blandit elementum 
+    elit et euismod. In et purus nisl, ac elementum orci.
+  \end{column}
+\end{columns}
+
 \end{frame}
 
 \section{Blocs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+    \sectionframe{Blocks \\ \textit{Lorem ipsum dolor sit amet}}
+\end{frame}
 
 \begin{frame}{Block}
   \begin{block}{Aliquam quis eros}
